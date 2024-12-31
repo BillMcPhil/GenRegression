@@ -12,22 +12,23 @@ int main(int argc, char *argv[])
 {
     srand(time(NULL));
     FILE *dataset;
+
+    // Make sure arguments are all there
+    if (argc < 3 || argc > 3)
+    {
+        printf("Wrong number of arguments.\n");
+        return 0;
+    }
+    
     if (strcmp(argv[1], "generate") == 0)
     {
-
-        // Make sure arguments are all there
-        if (argc < 2)
-        {
-            printf("Wrong number of arguments.");
-            return 0;
-        }
 
         // Open a new file in write mode
         dataset = fopen("dataset.txt", "w");
         if (dataset == NULL)
         {
             printf("File open failed1\n");
-            return 0;
+            return 1;
         }
 
         // Generate random dataset
