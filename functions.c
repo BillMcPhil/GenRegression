@@ -3,22 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-// Function to generate a random matrix
-void generateMatrix(int rows, int cols, double matrix[rows][cols])
-{
-    // Double for loop to generate a 2D matrix
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < cols; j++)
-        {
-            // Generates a random float between 1 and 10 and then multiplies it by -1 raised to either 0 or 1,
-            // to give a random float between -10 and 10 inclusive.
-            matrix[i][j] = ((double)rand() / (double)(RAND_MAX / 10)) * (pow(-1, rand() % 2));
-        }
-    }
-}
-
-// Function to print a matrix
+// Function to print a matrix. Useful for debugging
 void printMatrix(int rows, int cols, double matrix[rows][cols])
 {
     for (int i = 0; i < rows; i++)
@@ -39,50 +24,6 @@ void printMatrix(int rows, int cols, double matrix[rows][cols])
         printf("\n");
     }
     printf("\n");
-}
-
-// Function to add two matrices
-void addMatrices(int rowsA, int colsA, double matrixA[rowsA][colsA], int rowsB, int colsB, double matrixB[rowsB][colsB], double matrixC[rowsA][colsA])
-{
-    // Makes sure the matrices are of equal size
-    if (rowsA != rowsB || colsA != colsB)
-    {
-        printf("Incompatible matrix sizes.\n");
-    }
-
-    else
-    {
-        // Just loop through the matrix and add each value together
-        for (int i = 0; i < rowsA; ++i)
-        {
-            for (int j = 0; j < colsA; ++j)
-            {
-                matrixC[i][j] = matrixA[i][j] + matrixB[i][j];
-            }
-        }
-    }
-}
-
-// Function to subtract matrices
-void subtractMatrices(int rowsA, int colsA, double matrixA[rowsA][colsA], int rowsB, int colsB, double matrixB[rowsB][colsB], double matrixC[rowsA][colsA])
-{
-    // Ensure matrices are of the same dimensions
-    if (rowsA != rowsB || colsA != colsB)
-    {
-        printf("Incompatible matrix sizes.\n");
-    }
-
-    else
-    {
-        // Simply loop through each matrix and subtract their corresponding values
-        for (int i = 0; i < rowsA; ++i)
-        {
-            for (int j = 0; j < colsA; ++j)
-            {
-                matrixC[i][j] = matrixA[i][j] - matrixB[i][j];
-            }
-        }
-    }
 }
 
 // Function to multiply matrices
