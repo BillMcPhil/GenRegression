@@ -6,11 +6,14 @@
 
 #include "FileManagement.h"
 
+// Count the lines of a given file
 int countLines(FILE *file)
 {
     int count = 1;
     int ch;
+    // Reset file reader to the beginning
     fseek(file, 0, SEEK_SET);
+    // Run until end of file. Count number of endline characters
     while ((ch = fgetc(file)) != EOF)
     {
         if (ch == '\n')
@@ -23,6 +26,7 @@ int countLines(FILE *file)
     return count;
 }
 
+// Parse a file containing a dataset into appropriate lists
 void parseFile(FILE *file, double *trainxs, double *trainys, int dataLength)
 {
     for (int i = 0; i < dataLength; ++i)
@@ -31,10 +35,12 @@ void parseFile(FILE *file, double *trainxs, double *trainys, int dataLength)
     }
 }
 
+// Generate a random dataset based on a function, and store in a text file
 void generateDataset(FILE *file, char *function)
 {
     if (strcmp(function, "linear") == 0)
     {
+        // Random slope and y-intercept for the line
         double m = ((double)rand() / (double)(RAND_MAX / 5)) * (pow(-1, rand() % 2));
         double b = ((double)rand() / (double)(RAND_MAX / 10)) * (pow(-1, rand() % 2));
 
