@@ -12,3 +12,7 @@ want (ex. `./main data.txt linear`) . This time it also has the ability to gener
 There is also the functions.c file where the matrix operations such as matrix multiplication and Gaussian elimination are available in order to calculate the least squares solution.
 
 Like LinRegressionModel I use [pbPlots](https://github.com/InductiveComputerScience/pbPlots?tab=License-1-ov-file) to graph the datasets and resulting regressions.
+
+![a quadratic regression](https://github.com/BillMcPhil/GenRegression/blob/main/quadratic_regression.png)
+![a cubic regression](https://github.com/BillMcPhil/GenRegression/blob/main/cubic_regression.png)
+![a log regression](https://github.com/BillMcPhil/GenRegression/blob/main/log_regression.png)
